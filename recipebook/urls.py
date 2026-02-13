@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from ledger import views
 
 urlpatterns = [
-    path('ledger/', include('ledger.urls', namespace = "ledger")),
+    path('recipes/', include('ledger.urls', namespace = "recipes")),
+    path('recipe/', include('ledger.urls', namespace = "recipe")),
     path('admin/', admin.site.urls),
 ]

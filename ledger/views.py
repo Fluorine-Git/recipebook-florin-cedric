@@ -30,7 +30,7 @@ recipesAvailable = {
                     "quantity": "1 packet"
                 }
             ],
-            "link": "/recipe/1"
+            "link": "recipe/1"
         },
         {
             "name": "Recipe 2",
@@ -64,7 +64,7 @@ recipesAvailable = {
                     "quantity": "1 kilo"
                 }
             ],
-            "link": "/recipe/2"
+            "link": "recipe/2"
         }
     ]
 }
@@ -79,4 +79,4 @@ def recipe_1(request):
 
 def recipe_2(request):
     ctx = recipesAvailable["recipes"][1]
-    return render(request, "recipe2.html", ctx)
+    return render(request, "recipe1.html", ctx)

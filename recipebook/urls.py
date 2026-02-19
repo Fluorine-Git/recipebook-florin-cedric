@@ -19,7 +19,6 @@ from django.urls import include, path
 from ledger import views
 
 urlpatterns = [
-    path('recipes/', include('ledger.urls', namespace = "recipes")),
-    path('recipe/', include('ledger.urls', namespace = "recipe")),
+    path('', include('ledger.urls', namespace = "recipes")),
     path('admin/', admin.site.urls),
 ]

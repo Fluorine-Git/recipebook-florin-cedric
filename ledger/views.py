@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
+from .models import Ingredient, Recipe, RecipeIngredient
 
 # Create your views here.
 
@@ -69,14 +70,17 @@ recipesAvailable = {
     ]
 }
 
-def recipes(request):
-    ctx = recipesAvailable
+def recipe_list(request):
+    recipes = Recipe.objects.all()
+    ctx = {"recipes" : recipes}
     return render(request, "recipe.html", ctx)
 
-def recipe_1(request):
-    ctx = recipesAvailable["recipes"][0]
+def recipe_detail(request, pk):
+    ingredients = Recipe.objects.get(pk=pk)
+    # ctx = recipesAvailable["recipes"][0]
+    ctx = { "name" : name }
     return render(request, "recipe1.html", ctx)
 
-def recipe_2(request):
-    ctx = recipesAvailable["recipes"][1]
-    return render(request, "recipe1.html", ctx)
+# def recipe_2(request):
+#     ctx = recipesAvailable["recipes"][1]
+#     return render(request, "recipe1.html", ctx)

@@ -11,6 +11,6 @@ def recipe_list(request):
     return render(request, "recipe.html", ctx)
 
 def recipe_detail(request, pk):
-    recipes = Recipe.objects.get(pk=pk)
-    ctx = { "recipes" : recipes }
+    recipe = Recipe.objects.get(pk=pk)
+    ctx = { "recipe" : recipe }
     return render(request, "recipe_detail.html", ctx)

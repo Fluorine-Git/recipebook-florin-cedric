@@ -9,14 +9,6 @@ class Ingredient(models.Model):
     def __str__(self):
         return '{}'.format(self.name)
     
-    def get_absolute_url(self):
-        return reverse('ingredient_detail', args=[str(self.name)])
-
-    class Meta:
-        verbose_name = 'ingredient'
-        verbose_name_plural = 'ingredients'
-
-    
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
 
@@ -24,14 +16,11 @@ class Recipe(models.Model):
         return '{}'.format(self.name)
     
     def get_absolute_url(self):
-        return reverse('recipe_detail', args=[str(self.name)])
+        return reverse('recipe_detail', args=[str(self.id)])
     
-    class Meta:
-        verbose_name = 'recipe'
-        verbose_name_plural = 'recipes'
 
 class RecipeIngredient(models.Model):
-    quantity = models.CharField(max_lenght=100)
+    quantity = models.CharField(max_length=100)
     ingredient = models.ForeignKey(
         Ingredient,
         on_delete=models.CASCADE,
@@ -40,5 +29,3 @@ class RecipeIngredient(models.Model):
         Recipe,
         on_delete=models.CASCADE,
         related_name = "ingredients")
-    
-    class Meta:

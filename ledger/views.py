@@ -8,7 +8,7 @@ from .models import Ingredient, Recipe, RecipeIngredient
 def recipe_list(request):
     recipes = Recipe.objects.all()
     ctx = {"recipes" : recipes}
-    return render(request, "recipe.html", ctx)
+    return render(request, "recipe_list.html", ctx)
 
 def recipe_detail(request, pk):
     recipe = Recipe.objects.get(pk=pk)

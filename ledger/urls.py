@@ -1,8 +1,9 @@
-from django.urls import path
+from django.urls import path, include
 from .views import recipe_list, recipe_detail
 urlpatterns = [
     path('recipes/', recipe_list, name='recipes'),
     path('recipe/<int:pk>', recipe_detail, name='recipe_detail'),
+    path('accounts/', include('django.contrib.auth.urls'))
 ]
 
 app_name = "ledger"

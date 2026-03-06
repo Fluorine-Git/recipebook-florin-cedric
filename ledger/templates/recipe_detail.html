@@ -1,7 +1,9 @@
 {% extends "recipes.html" %}
 {% block body %}
-    <h1> Recipe Book </h1>
     <h2>{{ recipe.name }}</h2>
+    <h3>Created by: {{ recipe.author }}</h3>
+    <h5>Created On: {{ recipe.created_on }}</h3>
+    <h5>Updated On: {{ recipe.updated_on }}</h3>
     <ul>
         {% for ingredient in recipe.ingredients.all %}
             <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }} </li>

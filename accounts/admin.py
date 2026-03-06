@@ -5,7 +5,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 # Register your models here.
 from .models import Profile
 
-class ProfileInLine(admin.StackedInLine):
+class ProfileInLine(admin.StackedInline):
     model = Profile
     can_delete = False
     

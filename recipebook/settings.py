@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ledger'
+    'ledger',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +123,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = [os.path.join(BASE_DIR, 'static')]
 
-LOGIN_REDIRECT_URL = '/recipes/list'
-LGOUT_REDIRECT_URL = '/recipes/list'
-EMAIL_BACKEND = 'django.core.mail.backends.consile.EmailBackend'
+LOGIN_REDIRECT_URL = '/recipes'
+LOGOUT_REDIRECT_URL = '/recipes'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

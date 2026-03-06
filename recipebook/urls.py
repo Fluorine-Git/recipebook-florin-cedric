@@ -21,4 +21,5 @@ from ledger import views
 urlpatterns = [
     path('', include('ledger.urls', namespace = "recipes")),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls'))
 ]

@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import index
+from . import views
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('login', views.login_view, name='index'),
 ]
 
 app_name = "accounts"

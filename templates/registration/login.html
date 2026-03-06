@@ -1,0 +1,10 @@
+{% extends 'recipes.html' %}
+
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+    <a href="{% url 'password_reset' %}">Forgot Password?</a>
+</form>
+{% endblock %}

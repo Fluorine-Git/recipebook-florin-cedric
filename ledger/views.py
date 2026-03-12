@@ -34,11 +34,9 @@ def recipe_add(request):
     return render(request, "recipe_add.html", ctx)
 
 def image_add(request, pk):
-
+    recipe = Recipe.objects.get(pk=pk)
     if (request.method == "POST"):
-        recipe = Recipe.objects.get(pk=pk)
         image_form = RecipeImageForm(request.POST, request.FILES)
-
         if image_form.is_valid():
             image = image_form.save(commit=False)
             image.recipe = Recipe.objects.get(pk=pk)
@@ -47,7 +45,7 @@ def image_add(request, pk):
     else:
         image_form = RecipeImageForm()
         
-    ctx = { "form" : image_form }
+    ctx = { "form" : image_form, "recipe": recipe }
     return render(request, "image_add.html", ctx)
 
 @login_required

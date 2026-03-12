@@ -5,4 +5,5 @@
     {{ form }}
     <input type="submit" name="submit" value="Save Form">
 </form>
+<a href="{% url 'ledger:recipe_detail' recipe.pk %}">Go back</a>
 {% endblock %}

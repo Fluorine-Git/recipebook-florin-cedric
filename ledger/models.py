@@ -52,3 +52,5 @@ class RecipeImage(models.Model):
         on_delete=models.CASCADE,
         related_name="images"
     )
+    def get_absolute_url(self):
+        return reverse('ledger:image_add', args=(int(self.recipe.id)))

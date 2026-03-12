@@ -1,12 +1,31 @@
 {% extends "recipes.html" %}
+{% load static %}
+
+{% block page_title %}{% endblock %}
+{% block style %}<style></style>{% endblock %}
+
 {% block body %}
     <h2>{{ recipe.name }}</h2>
     <h3>Created by: {{ recipe.author }}</h3>
-    <h5>Created On: {{ recipe.created_on }}</h3>
-    <h5>Updated On: {{ recipe.updated_on }}</h3>
+    <p>Created On: {{ recipe.created_on }}</h3>
+    <p>Updated On: {{ recipe.updated_on }}</h3>
     <ul>
         {% for ingredient in recipe.ingredients.all %}
             <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }} </li>
         {% endfor %}
     </ul>
+
+    {% for image in recipe.images.all %}
+        {% if image.image %}
+    <img src="{{ image.image.url }}" alt="">
+        {% endif %}
+    {% endfor %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" name="submit" value="Save Form">
+    </form>
+
+
 {% endblock %}

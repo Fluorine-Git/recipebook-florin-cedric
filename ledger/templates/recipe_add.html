@@ -1,0 +1,18 @@
+{% extends 'recipes.html' %}
+{% block body %}
+<form action="/recipes/list" method="POST">
+    {% csrf_token %}
+    <label for="detail_name">
+        <span>Recipe Name</span>
+        <input type="text" id="recipe_name" name="recipe_name">
+    </label>
+
+    <select name="recipe_author" id="recipe_author">
+        {% for author in authors %}
+        <option value="{{ author.pk }}">{{ author.name }}</option>
+        {% endfor %}
+    </select>
+
+    <input type="submit" name="submit" value="Save Form">
+</form>
+{% endblock %}
